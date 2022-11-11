@@ -1,0 +1,201 @@
+////obstacle variables
+//static int maxNumObstacles = 100;
+//int numObstacles = 20;
+//Vec2 obstaclePos[] = new Vec2[maxNumObstacles];
+//float obstacleRad[] = new float[maxNumObstacles];
+
+////corners for right arm
+//Vec2 r1[] = new Vec2[4];
+//Vec2 r2[] = new Vec2[4];
+//Vec2 r3[] = new Vec2[4];
+//Vec2 r4[] = new Vec2[4];
+
+////corners for left arm
+//Vec2 l1[] = new Vec2[4];
+//Vec2 l2[] = new Vec2[4];
+//Vec2 l3[] = new Vec2[4];
+//Vec2 l4[] = new Vec2[4];
+
+////update the corner positions
+//void updateCornerPositions() {
+//  //get the centers of right arm
+//  Vec2 rCenters[] = new Vec2[4];
+//  rCenters[0] = new Vec2(cos(ar+a0r)*(start_lr.x + l0r/2), sin(ar+a0r)*(start_lr.y + armW/2));
+//  rCenters[1] = new Vec2(cos(ar+a0r+a1r)*(start_l1r.x + l1r/2), sin(ar+a0r+a1r)*(start_l1r.y + armW/2));
+//  rCenters[2] = new Vec2(cos(ar+a0r+a1r+a2r)*(start_l2r.x + l2r/2), sin(ar+a0r+a1r+a2r)*(start_l2r.y + armW/2));
+//  rCenters[3] = new Vec2(cos(ar+a0r+a1r+a2r+a3r)*(start_l3r.x + l3r/2), sin(ar+a0r+a1r+a2r+a3r)*(start_l3r.y + armW/2));
+ 
+//  //get the centers of left arm
+//  Vec2 lCenters[] = new Vec2[4];
+//  lCenters[0] = new Vec2(cos(al+a0l)*(start_ll.x + l0l/2), sin(al+a0l)*(start_ll.y + armW/2));
+//  lCenters[1] = new Vec2(cos(al+a0l+a1l)*(start_l1l.x + l1l/2), sin(al+a0l+a1l)*(start_l1l.y + armW/2));
+//  lCenters[2] = new Vec2(cos(al+a0l+a1l+a2l)*(start_l2l.x + l2l/2), sin(al+a0l+a1l+a2l)*(start_l2l.y + armW/2));
+//  lCenters[3] = new Vec2(cos(al+a0l+a1l+a2l+a3l)*(start_l3l.x + l3l/2), sin(al+a0l+a1l+a2l+a3l)*(start_l3l.y + armW/2));
+  
+//  //update corners for right arm
+//  Vec2 r1r = new Vec2(cos(ar+a0r),sin(ar+a0r)).times(armW/2);
+//  Vec2 u1r = new Vec2(-sin(ar+a0r),cos(ar+a0r)).times(l0r/2);
+//  r1[0] = rCenters[0].plus(r1r).plus(u1r);
+//  r1[1] = rCenters[0].plus(r1r).minus(u1r);
+//  r1[2] = rCenters[0].minus(r1r).plus(u1r);
+//  r1[3] = rCenters[0].minus(r1r).minus(u1r);
+  
+//  Vec2 r2r = new Vec2(cos(ar+a0r+a1r),sin(ar+a0r+a1r)).times(armW/2);
+//  Vec2 u2r = new Vec2(-sin(ar+a0r+a1r),cos(ar+a0r+a1r)).times(l1r/2);
+//  r2[0] = rCenters[1].plus(r2r).plus(u2r);
+//  r2[1] = rCenters[1].plus(r2r).minus(u2r);
+//  r2[2] = rCenters[1].minus(r2r).plus(u2r);
+//  r2[3] = rCenters[1].minus(r2r).minus(u2r);
+  
+//  Vec2 r3r = new Vec2(cos(ar+a0r+a1r+a2r),sin(ar+a0r+a1r+a2r)).times(armW/2);
+//  Vec2 u3r = new Vec2(-sin(ar+a0r+a1r+a2r),cos(ar+a0r+a1r+a2r)).times(l2r/2);
+//  r3[0] = rCenters[2].plus(r3r).plus(u3r);
+//  r3[1] = rCenters[2].plus(r3r).minus(u3r);
+//  r3[2] = rCenters[2].minus(r3r).plus(u3r);
+//  r3[3] = rCenters[2].minus(r3r).minus(u3r);
+  
+//  Vec2 r4r = new Vec2(cos(ar+a0r+a1r+a2r+a3r),sin(ar+a0r+a1r+a2r+a3r)).times(armW/2);
+//  Vec2 u4r = new Vec2(-sin(ar+a0r+a1r+a2r+a3r),cos(ar+a0r+a1r+a2r+a3r)).times(l3r/2);
+//  r4[0] = rCenters[3].plus(r4r).plus(u4r);
+//  r4[1] = rCenters[3].plus(r4r).minus(u4r);
+//  r4[2] = rCenters[3].minus(r4r).plus(u4r);
+//  r4[3] = rCenters[3].minus(r4r).minus(u4r);
+  
+//  //update corners for left arm
+//  Vec2 r1l = new Vec2(cos(al+a0l),sin(al+a0l)).times(armW/2);
+//  Vec2 u1l = new Vec2(-sin(al+a0l),cos(al+a0l)).times(l0l/2);
+//  l1[0] = lCenters[0].plus(r1l).plus(u1l);
+//  l1[1] = lCenters[0].plus(r1l).minus(u1l);
+//  l1[2] = lCenters[0].minus(r1l).plus(u1l);
+//  l1[3] = lCenters[0].minus(r1l).minus(u1l);
+  
+//  Vec2 r2l = new Vec2(cos(al+a0l+a1l),sin(al+a0l+a1l)).times(armW/2);
+//  Vec2 u2l = new Vec2(-sin(al+a0l+a1l),cos(al+a0l+a1l)).times(l1l/2);
+//  l2[0] = lCenters[1].plus(r2l).plus(u2l);
+//  l2[1] = lCenters[1].plus(r2l).minus(u2l);
+//  l2[2] = lCenters[1].minus(r2l).plus(u2l);
+//  l2[3] = lCenters[1].minus(r2l).minus(u2l);
+  
+//  Vec2 r3l = new Vec2(cos(al+a0l+a1l+a2l),sin(al+a0l+a1l+a2l)).times(armW/2);
+//  Vec2 u3l = new Vec2(-sin(al+a0l+a1l+a2l),cos(al+a0l+a1l+a2l)).times(l2l/2);
+//  l3[0] = lCenters[2].plus(r3l).plus(u3l);
+//  l3[1] = lCenters[2].plus(r3l).minus(u3l);
+//  l3[2] = lCenters[2].minus(r3l).plus(u3l);
+//  l3[3] = lCenters[2].minus(r3l).minus(u3l);
+  
+//  Vec2 r4l = new Vec2(cos(al+a0l+a1l+a2l+a3l),sin(al+a0l+a1l+a2l+a3l)).times(armW/2);
+//  Vec2 u4l = new Vec2(-sin(al+a0l+a1l+a2l+a3l),cos(al+a0l+a1l+a2l+a3l)).times(l3l/2);
+//  l4[0] = lCenters[3].plus(r4l).plus(u4l);
+//  l4[1] = lCenters[3].plus(r4l).minus(u4l);
+//  l4[2] = lCenters[3].minus(r4l).plus(u4l);
+//  l4[3] = lCenters[3].minus(r4l).minus(u4l);
+//}
+
+//class ColideInfo{
+//  public boolean hit = false;
+//  public Vec2 hitPoint = new Vec2(0,0);
+//  public int obstacleIndex = -1;
+//}
+
+//ColideInfo collisionTest() {
+//  //update the corners
+//  updateCornerPositions();
+  
+//  ColideInfo info = new ColideInfo();
+  
+//  //loop through all corners
+//  for (int i = 0; i < r1.length; i++) {
+//    for (int j = 0; j < numObstacles; j++) {
+//      if (point_in_circle(obstaclePos[j], obstacleRad[j], r1[i])) {
+//        info.hitPoint = r1[i];
+//        info.hit = true;
+//        info.obstacleIndex = j;
+//      }
+//    }
+//  }
+//  for (int i = 0; i < r2.length; i++) {
+//    for (int j = 0; j < numObstacles; j++) {
+//      if (point_in_circle(obstaclePos[j], obstacleRad[j], r2[i])) {
+//        info.hitPoint = r2[i];
+//        info.hit = true;
+//        info.obstacleIndex = j;
+//      }
+//    }
+//  }
+//  for (int i = 0; i < r3.length; i++) {
+//    for (int j = 0; j < numObstacles; j++) {
+//      if (point_in_circle(obstaclePos[j], obstacleRad[j], r3[i])) {
+//        info.hitPoint = r3[i];
+//        info.hit = true;
+//        info.obstacleIndex = j;
+//      }
+//    }
+//  }
+//  for (int i = 0; i < r4.length; i++) {
+//    for (int j = 0; j < numObstacles; j++) {
+//      if (point_in_circle(obstaclePos[j], obstacleRad[j], r4[i])) {
+//        info.hitPoint = r4[i];
+//        info.hit = true;
+//        info.obstacleIndex = j;
+//      }
+//    }
+//  }
+//  for (int i = 0; i < l1.length; i++) {
+//    for (int j = 0; j < numObstacles; j++) {
+//      if (point_in_circle(obstaclePos[j], obstacleRad[j], l1[i])) {
+//        info.hitPoint = l1[i];
+//        info.hit = true;
+//        info.obstacleIndex = j;
+//      }
+//    }
+//  }
+//  for (int i = 0; i < l2.length; i++) {
+//    for (int j = 0; j < numObstacles; j++) {
+//      if (point_in_circle(obstaclePos[j], obstacleRad[j], l2[i])) {
+//        info.hitPoint = l2[i];
+//        info.hit = true;
+//        info.obstacleIndex = j;
+//      }
+//    }
+//  }
+//  for (int i = 0; i < l3.length; i++) {
+//    for (int j = 0; j < numObstacles; j++) {
+//      if (point_in_circle(obstaclePos[j], obstacleRad[j], l3[i])) {
+//        info.hitPoint = l3[i];
+//        info.hit = true;
+//        info.obstacleIndex = j;
+//      }
+//    }
+//  }
+//  for (int i = 0; i < l4.length; i++) {
+//    for (int j = 0; j < numObstacles; j++) {
+//      if (point_in_circle(obstaclePos[j], obstacleRad[j], l4[i])) {
+//        info.hitPoint = l4[i];
+//        info.hit = true;
+//        info.obstacleIndex = j;
+//      }
+//    }
+//  }
+  
+//  return info;
+//}
+
+//void resolveCollision(Vec2 hitPoint, int obstacleIndex) {
+//  Vec2 normal = (hitPoint.minus(obstaclePos[obstacleIndex])).normalized();
+  
+//}
+
+////draw random obstacles
+  //fill(0,0,0);
+  //for (int i = 0; i < numObstacles; i++) {
+  //  Vec2 c = obstaclePos[i];
+  //  float r = obstacleRad[i];
+  //  circle(c.x,c.y,r*2);
+  //}
+
+//for (int i = 0; i < numObstacles; i++) {
+  //  obstaclePos[i] = sampleFreePos();
+  //  obstacleRad[i] = random(30, 60);
+  //}
+
+//boolean insideAnyObstacle = point_in_circle_list(obstaclePos, obstacleRad, numObstacles, randPos);
